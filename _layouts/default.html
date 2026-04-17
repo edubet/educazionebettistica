@@ -6,94 +6,59 @@
     <title>{{ page.title }} | Educazione Bettistica</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap');
-
         *{margin:0;padding:0;box-sizing:border-box;}
-
-        body{
-          background:#0a0a0a;
-          font-family:'Barlow',sans-serif;
-          color:#fff;
-          min-height:100vh;
-        }
-
-        /* GRID NOISE */
-        body::before{
-          content:'';
-          position:fixed;
-          inset:0;
-          background-image:
-            linear-gradient(rgba(0,255,120,0.025) 1px,transparent 1px),
-            linear-gradient(90deg,rgba(0,255,120,0.025) 1px,transparent 1px);
-          background-size:40px 40px;
-          z-index:0;
-          pointer-events:none;
-        }
-
-        /* TOP SHIMMER BAR */
-        .top-bar{
-          height:4px;
-          background:linear-gradient(90deg,#00ff78,#00c8ff,#00ff78);
-          background-size:200% 100%;
-          animation:shimmer 3s linear infinite;
-          position:relative;z-index:10;
-        }
+        body{background:#0a0a0a;font-family:'Barlow',sans-serif;color:#fff;min-height:100vh;}
+        body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,120,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,120,0.025) 1px,transparent 1px);background-size:40px 40px;z-index:0;pointer-events:none;}
+        .top-bar{height:4px;background:linear-gradient(90deg,#00ff78,#00c8ff,#00ff78);background-size:200% 100%;animation:shimmer 3s linear infinite;position:relative;z-index:10;}
         @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
         @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-
-        /* NAVBAR */
-        nav{
-          position:sticky;top:0;z-index:100;
-          background:rgba(10,10,10,0.96);
-          border-bottom:1px solid rgba(0,255,120,0.12);
-          padding:0 40px;
-          height:60px;
-          display:flex;align-items:center;justify-content:space-between;
-          backdrop-filter:blur(10px);
-        }
-
-        .logo{
-          font-family:'Bebas Neue',sans-serif;
-          font-size:26px;letter-spacing:3px;
-          background:linear-gradient(135deg,#00ff78,#00c8ff);
-          -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-        }
-
+        nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.96);border-bottom:1px solid rgba(0,255,120,0.12);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(10px);}
+        .logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;background:linear-gradient(135deg,#00ff78,#00c8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
         .nav-links{list-style:none;display:flex;gap:0;}
-        .nav-links li a{
-          font-family:'Barlow Condensed',sans-serif;
-          font-weight:700;font-size:12px;letter-spacing:2.5px;
-          text-transform:uppercase;color:rgba(255,255,255,0.35);
-          text-decoration:none;padding:8px 14px;
-          border-bottom:2px solid transparent;
-          transition:all .15s;
-        }
+        .nav-links li a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;padding:8px 14px;border-bottom:2px solid transparent;transition:all .15s;}
         .nav-links li a:hover,.nav-links li a.active{color:#00ff78;border-bottom-color:#00ff78;}
-
-        /* Incolla qui tutto il resto del CSS che hai mandato prima... */
-        /* Per brevità non lo incollo tutto qui, ma tu mettilo tutto fino alla chiusura di footer */
-
+        .hero{position:relative;z-index:5;padding:56px 40px 40px;border-bottom:1px solid rgba(0,255,120,0.1);overflow:hidden;}
+        .league-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(0,255,120,0.07);border:1px solid rgba(0,255,120,0.25);border-radius:4px;padding:6px 14px;margin-bottom:20px;}
+        .league-badge .dot{width:8px;height:8px;background:#00ff78;border-radius:50%;animation:pulse 1.5s ease-in-out infinite;}
+        .league-badge span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:3px;color:#00ff78;text-transform:uppercase;}
+        .hero h1{font-family:'Bebas Neue',sans-serif;font-size:80px;line-height:.92;letter-spacing:1px;color:#fff;text-transform:uppercase;margin-bottom:16px;}
+        .hero h1 .accent{background:linear-gradient(135deg,#00ff78,#00c8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+        .hero-sub{font-size:17px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:.3px;max-width:600px;}
+        .main-layout{position:relative;z-index:5;display:grid;grid-template-columns:1fr 300px;gap:0;max-width:1280px;margin:0 auto;}
+        .content-area{padding:40px;}
+        .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+        .sec-head-label{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:#00ff78;}
+        .sec-head-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,120,0.4),transparent);}
+        .card-featured{background:#0d0d0f;border:1px solid rgba(255,255,255,0.07);border-left:3px solid #00ff78;border-radius:6px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden;}
+        .feat-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,255,120,0.1);border:1px solid rgba(0,255,120,0.3);border-radius:3px;padding:4px 10px;margin-bottom:14px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;color:#00ff78;text-transform:uppercase;}
+        .card-featured h2{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:.95;letter-spacing:1px;color:#fff;text-transform:uppercase;margin-bottom:14px;}
+        .card-featured p{font-size:17px;line-height:1.58;color:rgba(255,255,255,0.65);margin-bottom:16px;}
+        .feat-footer{display:flex;align-items:center;justify-content:space-between;}
+        .feat-read{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;color:#00ff78;text-decoration:none;text-transform:uppercase;border:1px solid rgba(0,255,120,0.3);padding:6px 16px;border-radius:3px;background:rgba(0,255,120,0.06);}
+        .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+        .card{background:#0d0d0f;border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:20px;}
+        .sidebar{padding:40px 28px;display:flex;flex-direction:column;gap:24px;}
+        .widget{background:#0d0d0f;border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:20px;}
+        .widget-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#00ff78;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(0,255,120,0.15);}
+        footer{position:relative;z-index:5;background:#0d0d0f;border-top:1px solid rgba(255,255,255,0.05);padding:22px 40px;display:flex;align-items:center;justify-content:space-between;}
+        .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;background:linear-gradient(135deg,#00ff78,#00c8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
     </style>
 </head>
 <body>
+    <div class="top-bar"></div>
+    <nav>
+        <div class="logo">Educazione Bettistica</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/articoli">Articoli</a></li>
+            <li><a href="/chi-sono">Chi Sono</a></li>
+        </ul>
+    </nav>
 
-<div class="top-bar"></div>
+    {{ content }}
 
-<nav>
-  <div class="logo">Educazione Bettistica</div>
-  <ul class="nav-links">
-    <li><a href="/" class="active">Home</a></li>
-    <li><a href="/articoli">Articoli</a></li>
-    <li><a href="/chi-sono">Chi Sono</a></li>
-    <li><a href="/contatti">Contatti</a></li>
-  </ul>
-</nav>
-
-{{ content }}
-
-<footer>
-  <div class="footer-logo">Educazione Bettistica</div>
-  <div class="footer-copy">© 2025 · All rights reserved · github.io</div>
-</footer>
-
+    <footer>
+        <div class="footer-logo">Educazione Bettistica</div>
+    </footer>
 </body>
 </html>
